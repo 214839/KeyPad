@@ -1,0 +1,264 @@
+<html>
+<head>
+<title> KeyPad </title>
+<script src="Scripts/processing.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
+
+//Variables for Length and Height
+int rectH;
+int rectW;
+int rectG;
+
+//Variables for MouseClicked and Lock 
+int y;
+int mouseC;
+
+//Key
+int x;
+
+//Images
+PImage one;
+PImage two;
+PImage three;
+PImage four;
+PImage five;
+PImage six;
+PImage seven;
+PImage eight;
+PImage nine;
+PImage zero;
+PImage asterix;
+
+void setup()
+{
+
+//Something that you shouldn't mess
+size( 1000, 520 );
+frameRate( 30 );
+
+//Rectangle Height and Length, Gap
+rectH = 100;
+rectL = 100;
+rectG = 7;
+power = 1;
+
+//Images
+one = loadImage("Images/1.png");
+two = loadImage("Images/2.png");
+three = loadImage("Images/3.png");
+four = loadImage("Images/4.png");
+five = loadImage("Images/5.png");
+six = loadImage("Images/6.png");
+seven = loadImage("Images/7.png");
+eight = loadImage("Images/8.png");
+nine = loadImage("Images/9.png");
+zero = loadImage("Images/0.png");
+asterix = loadImage("Images/asterix.png")
+
+//Clicking Purposes
+mouseC = 0;
+y = 1;
+
+//Key code
+x = 0;
+
+}
+
+void draw()
+{
+
+	//Background
+	background(0,0,0);
+	
+		//Keypad
+	fill(255,0,0)
+	rect(50,50,rectL,rectH);
+	rect(150,50,rectL,rectH);
+	rect(250,50,rectL,rectH);
+	rect(50,150,rectL,rectH);
+	rect(50,250,rectL,rectH);
+	rect(50,350,rectL,rectH);
+	rect(150,150,rectL,rectH);
+	rect(250,150,rectL,rectH);
+	rect(150,250,rectL,rectH);
+	rect(250,250,rectL,rectH);
+	rect(150,350,rectL,rectH);
+	rect(250,350,rectL,rectH);
+	
+	//Images on Keypad
+	image(seven,50,50,rectL,rectH);
+	image(eight,150,50,rectL,rectH);
+	image(nine,250,50,rectL,rectH);
+	image(four,50,150,rectL,rectH);
+	image(five,150,150,rectL,rectH);
+	image(six,250,150,rectL,rectH);
+	image(one,50,250,rectL,rectH);
+	image(two,150,250,rectL,rectH);
+	image(three,250,250,rectL,rectH);
+	image(zero,150,350,rectL,rectH);
+	
+	//KeySpace
+	fill(255,0,0)
+	rect(450,200,400,100);
+	
+	//Text
+	fill(255,255,255);
+	textSize(40);
+	text("*Please Enter the Key",450,190);
+	
+	//Overall MouseC 
+	if(mousePressed == true)
+	{	
+		if(mouseButton == LEFT && y == 1)
+		{
+			if(mouseX > 50 && mouseX < 350 && mouseY > 150 && mouseY < 350)
+			{
+				mouseC = mouseC + 1;
+				y = 0; 				
+			}
+		}	
+	}
+	
+	if(mousePressed == false)
+	{
+		y = 1 
+	}
+	
+	//ASTERIX
+	if(mouseC >= 1)
+	{
+		image(asterix,450,200,rectH,rectL);
+	}
+	if(mouseC >=2)
+	{
+		image(asterix,550,200,rectH,rectL);
+	}
+	if(mouseC >=3)
+	{
+		image(asterix,650,200,rectH,rectL);
+	}
+	if(mouseC >=4)
+	{
+		image(asterix,750,200,rectH,rectL);
+	}
+	
+	//KeyCode 7
+	if(mousePressed == true)
+	{	
+		if(mouseButton == LEFT && y == 1)
+		{
+			if(mouseX > 50 && mouseX < 150 && mouseY > 50 && mouseY < 150)
+			{
+				x = x + 1;
+				y = 0; 				
+			}
+		}	
+	}
+	if(mousePressed == false)
+	{
+		y = 1 
+	}
+	
+	if(x >= 1)
+	{
+		image(asterix,450,200,rectH,rectL);
+	}
+	
+	
+	//KeyCode 8
+	if(mousePressed == true)
+	{	
+		if(mouseButton == LEFT && y == 1)
+		{
+			if(mouseX > 150 && mouseX < 250 && mouseY > 50 && mouseY < 150)
+			{
+				x = x + 1;
+				y = 0; 				
+			}
+		}	
+	}
+	if(mousePressed == false)
+	{
+		y = 1 
+	}
+	if(x >= 2)
+	{
+		image(asterix,550,200,rectH,rectL);
+	}
+	
+	//KeyCode 9
+	if(mousePressed == true)
+	{	
+		if(mouseButton == LEFT && y == 1)
+		{
+			if(mouseX > 250 && mouseX < 350 && mouseY > 50 && mouseY < 150)
+			{
+				x = x + 1;
+				y = 0; 				
+			}
+		}	
+	}
+	if(mousePressed == false)
+	{
+		y = 1 
+	}
+	if(x >= 3)
+	{
+		image(asterix,650,200,rectH,rectL);
+	}
+	
+	//KeyCode 0
+	if(mousePressed == true)
+	{	
+		if(mouseButton == LEFT && y == 1)
+		{
+			if(mouseX > 150 && mouseX < 250 && mouseY > 350 && mouseY < 450)
+			{
+				x = x + 1;
+				y = 0; 				
+			}
+		}	
+	}
+	if(mousePressed == false)
+	{
+		y = 1 
+	}
+	if(x >= 4)
+	{
+		image(asterix,750,200,rectH,rectL);
+	}
+	
+	if(x >= 4)
+	{
+		link("KeyPadUnlocked.html");	
+	}
+	if(x <=3 && mouseC >=4)
+	{
+		fill(255,0,0);
+		textSize(20);
+		text("Incorrect password",450,325);
+		rect(450,332,100,50);
+		fill(0,0,0);
+		text("Reset",475,364);
+		if(mousePressed == true && mouseButton == LEFT)
+		{
+			if(mouseX > 450 && mouseX < 550 && mouseY > 332 && mouseY < 385)
+			{
+				link("index.html");
+			}
+		}		
+	}	
+	
+}
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+	
