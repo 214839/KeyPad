@@ -1,6 +1,6 @@
 <html>
 <head>
-<title> KeyPad </title>
+<title> Mr. Lueng Way </title>
 <script src="Scripts/processing.js"></script>
 <script type="text/processing" data-processing-target="mycanvas">
 
@@ -19,6 +19,7 @@ int xa;
 int xb;
 int xc;
 int xd;
+int z;
 
 //Images
 PImage one;
@@ -69,6 +70,7 @@ xa = 0;
 xb = 0;
 xc = 0;
 xd = 0;
+z = 0;
 
 }
 
@@ -79,7 +81,7 @@ void draw()
 	background(0,0,0);
 	
 		//Keypad
-	fill(255,0,0)
+	fill(0,255,0)
 	rect(50,50,rectL,rectH);
 	rect(150,50,rectL,rectH);
 	rect(250,50,rectL,rectH);
@@ -106,20 +108,25 @@ void draw()
 	image(zero,150,350,rectL,rectH);
 	
 	//KeySpace
-	fill(255,0,0)
+	fill(0,255,0)
 	rect(450,200,400,100);
 	
 	//Text
 	fill(255,255,255);
 	textSize(40);
 	text("*Please Enter the Key",450,190);
+	textSize(10);
+	text(mouseX,100,20);
+	text(mouseY,150,20);
+	text(mouseC,200,20);
+	text(x,400,20);
 	
 	//Overall MouseC 
 	if(mousePressed == true)
 	{	
 		if(mouseButton == LEFT && y == 1)
 		{
-			if(mouseX > 50 && mouseX < 350 && mouseY > 150 && mouseY < 350)
+			if(mouseX > 50 && mouseX < 350 && mouseY > 50 && mouseY < 450)
 			{
 				mouseC = mouseC + 1;
 				y = 0; 				
@@ -150,110 +157,96 @@ void draw()
 		image(asterix,750,200,rectH,rectL);
 	}
 	
-	//KeyCode 7
-	if(mousePressed == true)
-	{	
-		if(mouseButton == LEFT && y == 1)
-		{
-			if(mouseX > 50 && mouseX < 150 && mouseY > 50 && mouseY < 150 && x == 0)
-			{
-				x = x + 1;
-				y = 0;
-				xa = 1; 				
-			}
-		}	
-	}
-	if(mousePressed == false)
+	// 7 
+	if(mouseX > 50 && mouseX < 150 && mouseY > 50 && mouseY < 150)
 	{
-		y = 1 
+		if(mouseC == 1 && z == 0)
+		{
+			x = x + 1000 * 7;
+			z = 1;
+		}
+		if(mouseC < 1)
+		{
+			z = 0
+		}
+		if(mouseC == 2 && z == 0)
+		{
+			x = x + 100 * 7;
+			z = 1;
+		}
+		if(mouseC < 2)
+		{
+			z = 0
+		}
+		if(mouseC == 3)
+		{
+			x = x + 10 * 7;
+		}
+		if(mouseC == 4)
+		{
+			x = x +1 * 7;
+		}
+	
 	}
 	
-	if(x >= 1)
+	// 8
+	if(mouseX > 150 && mouseX < 250 && mouseY > 50 && mouseY < 150)
 	{
-		image(asterix,450,200,rectH,rectL);
-	}
-	
-	
-	//KeyCode 8
-	if(mousePressed == true)
-	{	
-		if(mouseButton == LEFT && y == 1)
+		if(mouseC == 1)
 		{
-			if(mouseX > 150 && mouseX < 250 && mouseY > 50 && mouseY < 150 && x == 1)
-			{
-				x = x + 1;
-				y = 0;
-				xb = 1; 				
-			}
-		}	
-	}
-	if(mousePressed == false)
-	{
-		y = 1 
-	}
-	if(x >= 2)
-	{
-		image(asterix,550,200,rectH,rectL);
-	}
-	
-	//KeyCode 9
-	if(mousePressed == true)
-	{	
-		if(mouseButton == LEFT && y == 1)
+			x = x + 1000 * 8;
+		}
+		if(mouseC == 2)
 		{
-			if(mouseX > 250 && mouseX < 350 && mouseY > 50 && mouseY < 150 && x == 2)
-			{
-				x = x + 1;
-				y = 0; 	
-				xc = 1; 			
-			}
-		}	
-	}
-	if(mousePressed == false)
-	{
-		y = 1 
-	}
-	if(x >= 3)
-	{
-		image(asterix,650,200,rectH,rectL);
-	}
-	
-	//KeyCode 0
-	if(mousePressed == true)
-	{	
-		if(mouseButton == LEFT && y == 1)
+			x = x + 100 * 8;
+		}
+		if(mouseC == 3)
 		{
-			if(mouseX > 150 && mouseX < 250 && mouseY > 350 && mouseY < 450 && x == 3)
-			{
-				x = x + 1;
-				y = 0;
-				xd = 1; 			
-			}
-		}	
-	}
-	if(mousePressed == false)
-	{
-		y = 1 
-	}
-	if(xa == 1)
-	{
-		if(xb == 1)
+			x = x + 10 * 8;
+		}
+		if(mouseC == 4)
 		{
-			if(xc == 1)
-			{
-				if(xd == 1)
-				{
-					image(asterix,750,200,rectH,rectL);
-				}
-			}
+			x = x +1 * 8;
 		}
 	}
 	
-	if(x >= 4)
+	// 9
+	if(mouseX > 250 && mouseX < 350 && mouseY > 50 && mouseY < 150)
+	{
+		if(mouseC == 1)
+		{
+			x = x + 1000 * 9;
+		}
+		if(mouseC == 2)
+		{
+			x = x + 100 * 9;
+		}
+		if(mouseC == 3)
+		{
+			x = x + 10 * 9;
+		}
+		if(mouseC == 4)
+		{
+			x = x +1 * 9;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	if(x == 3210)
 	{
 		link("KeyPadUnlocked.html");	
 	}
-	if(x <= 3 && mouseC >=4)
+	if(xa < 7 && xb < 9 && xc < 8 && xd > 0 && mouseC >=4)
 	{
 		fill(255,0,0);
 		textSize(20);
