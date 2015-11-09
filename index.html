@@ -173,6 +173,22 @@ void draw()
 		image(asterix,450,200,rectH,rectL);
 	}
 	
+	// 7 Showing
+	if(mousePressed == true)
+	{	
+		if(mouseButton == LEFT && y == 1)
+		{
+			if(mouseX > 50 && mouseX < 150 && mouseY > 50 && mouseY < 150)
+			{
+				x = x + 1;
+				y = 0; 				
+			}
+		}	
+	}
+	if(mousePressed == false)
+	{
+		y = 1 
+	}
 	
 	//KeyCode 8
 	if(mousePressed == true)
@@ -196,6 +212,23 @@ void draw()
 		image(asterix,550,200,rectH,rectL);
 	}
 	
+	// 8 Showing 
+	if(mousePressed == true)
+	{	
+		if(mouseButton == LEFT && y == 1)
+		{
+			if(mouseX > 150 && mouseX < 250 && mouseY > 50 && mouseY < 150)
+			{
+				x = x + 1;
+				y = 0;				
+			}
+		}	
+	}
+	if(mousePressed == false)
+	{
+		y = 1 
+	}
+	
 	//KeyCode 9
 	if(mousePressed == true)
 	{	
@@ -217,6 +250,24 @@ void draw()
 	{
 		image(asterix,650,200,rectH,rectL);
 	}
+	
+	//9 Showing 
+	if(mousePressed == true)
+	{	
+		if(mouseButton == LEFT && y == 1)
+		{
+			if(mouseX > 250 && mouseX < 350 && mouseY > 50 && mouseY < 150)
+			{
+				x = x + 1;
+				y = 0; 	   			
+			}
+		}	
+	}
+	if(mousePressed == false)
+	{
+		y = 1 
+	}
+	
 	
 	//KeyCode 0
 	if(mousePressed == true)
@@ -243,7 +294,7 @@ void draw()
 			{
 				if(xd == 1)
 				{
-					image(asterix,750,200,rectH,rectL);
+					link("KeyPadUnlocked.html");
 				}
 			}
 		}
@@ -251,8 +302,26 @@ void draw()
 	
 	if(x >= 4)
 	{
-		link("KeyPadUnlocked.html");	
+		image(asterix,750,200,rectH,rectL);	
 	}
+	
+	//0 Showing 
+	if(mousePressed == true)
+	{	
+		if(mouseButton == LEFT && y == 1)
+		{
+			if(mouseX > 150 && mouseX < 250 && mouseY > 350 && mouseY < 450)
+			{
+				x = x + 1;
+				y = 0;			
+			}
+		}	
+	}
+	if(mousePressed == false)
+	{
+		y = 1 
+	}
+	
 	if(x <= 3 && mouseC >=4)
 	{
 		fill(255,0,0);
