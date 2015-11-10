@@ -78,7 +78,7 @@ void draw()
 	//Background
 	background(0,0,0);
 	
-		//Keypad
+	//Keypad
 	fill(255,0,0)
 	rect(50,50,rectL,rectH);
 	rect(150,50,rectL,rectH);
@@ -113,7 +113,23 @@ void draw()
 	fill(255,255,255);
 	textSize(40);
 	text("*Please Enter the Key",450,190);
+	textSize(70);
+	fill(0,0,0);
+	text("C",275,425);
 	
+	//C
+	if(mousePressed == true)
+	{
+		if(mouseButton == LEFT)
+		{
+			if(mouseX > 250 && mouseX < 350 && mouseY > 350 && mouseY < 450)
+			{
+				link("index.html");
+			}
+		}
+	}
+
+
 	//Overall MouseC 
 	if(mousePressed == true)
 	{	
@@ -322,7 +338,7 @@ void draw()
 		y = 1 
 	}
 	
-	if(x <= 3 && mouseC >=4)
+	if(x <= 3 && mouseC >=4 )
 	{
 		fill(255,0,0);
 		textSize(20);
@@ -349,6 +365,3 @@ void draw()
 
 </body>
 </html>
-
-
-	

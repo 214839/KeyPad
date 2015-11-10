@@ -1,0 +1,46 @@
+<html>
+<head>
+<title> Vault Unlocked </title>
+<script src="Scripts/processing.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
+
+void setup(){
+
+size( 775, 250 );
+frameRate( 30 );
+
+}
+
+
+void draw()
+{
+	background(0,0,0);
+	
+	fill(0,255,0);
+	textSize(50);
+	text("Welcome to your vault.",125,125);
+	
+	fill(0,255,0);
+	rect(282,150,150,50);
+	
+	fill(0,0,0);
+	textSize(20);
+	text("Go Back",315,182);
+	
+	if(mousePressed == true && mouseButton == LEFT)
+	{
+		if(mouseX > 282 && mouseX < 432 && mouseY > 150 && mouseY < 200)
+		{
+			link("mrLeungsWay.html");
+		}
+	}
+}
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>
